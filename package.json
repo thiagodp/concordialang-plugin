@@ -1,0 +1,54 @@
+{
+  "name": "concordialang-plugin",
+  "version": "0.1.0",
+  "description": "Plugin basic declarations for Concordia Language",
+  "license": "AGPL-3.0",
+  "readme": "readme.md",
+  "homepage": "https://github.com/thiagodp/concordialang-plugin#readme",
+  "author": {
+    "name": "Thiago Delgado Pinto",
+    "email": "thiago-dp@bol.com.br"
+  },
+  "keywords": [
+    "concordialang",
+    "concordia-lang",
+    "concordia",
+    "plugin",
+    "plug-in",
+    "test",
+    "script",
+    "test-script"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postversion": "git push && git push --tags"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagodp/concordialang-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagodp/concordialang-plugin/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^11.11.6",
+    "typescript": "^3.3.4000"
+  },
+  "dependencies": {
+    "concordialang-types": "^0.1.0"
+  }
+}
