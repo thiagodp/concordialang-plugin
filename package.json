@@ -20,7 +20,9 @@
     "test-script"
   ],
   "files": [
-    "dist/*"
+    "dist/Plugin.js",
+    "dist/InstrumentationReader.js",
+    "dist/FileInstrumentationReader.js"
   ],
   "scripts": {
     "build": "tsc",
