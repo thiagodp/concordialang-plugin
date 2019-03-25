@@ -19,6 +19,7 @@
     "script",
     "test-script"
   ],
+  "main": "dist",
   "files": [
     "dist/Plugin.js",
     "dist/InstrumentationReader.js",
