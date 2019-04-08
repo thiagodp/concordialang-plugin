@@ -54,6 +54,6 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "concordialang-types": "^0.1.1"
+    "concordialang-types": "^0.1.2"
   }
 }
