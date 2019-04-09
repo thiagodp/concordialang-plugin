@@ -19,7 +19,8 @@
     "script",
     "test-script"
   ],
-  "main": "dist/index.js",
+  "main": "dist",
+  "types": "dist",
   "files": [
     "dist/*"
   ],
@@ -54,6 +55,6 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "concordialang-types": "^0.1.2"
+    "concordialang-types": "^0.1.3"
   }
 }
