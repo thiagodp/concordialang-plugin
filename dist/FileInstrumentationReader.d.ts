@@ -1,4 +1,4 @@
-import { Location } from 'concordialang-types/ast';
+import { Location } from 'concordialang-types';
 import { InstrumentationReader } from './InstrumentationReader';
 /**
  * Default script file instrumentation.
