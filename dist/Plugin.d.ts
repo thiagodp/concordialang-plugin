@@ -28,4 +28,9 @@ export interface Plugin {
      * @return Execution results.
      */
     convertReportFile(filePath: string): Promise<TestScriptExecutionResult>;
+    /**
+     * Returns the default report file name. Concordia may look for it in the
+     * output/result directory when the parameter `--just-report` is given.
+     */
+    defaultReportFile(): Promise<string>;
 }
