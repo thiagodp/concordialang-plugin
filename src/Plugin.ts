@@ -16,7 +16,7 @@ export interface Plugin {
      * @param abstractTestScripts Abstract test scripts
      * @param options Options
      * @param errors File generation errors
-     * @return An array with promises for each file, contaning the file name as the data.
+     * @return An array with promises for each file, containing the file name as the data.
      */
     generateCode(
         abstractTestScripts: AbstractTestScript[],

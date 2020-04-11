@@ -11,10 +11,12 @@ class TestScriptGenerationOptions {
      *
      * @param pluginName Plugin name
      * @param sourceCodeDir Directory for the source code
+     * @param specificationDir Directory that contains specification files
      */
-    constructor(pluginName = null, sourceCodeDir = null) {
+    constructor(pluginName, sourceCodeDir, specificationDir) {
         this.pluginName = pluginName;
         this.sourceCodeDir = sourceCodeDir;
+        this.specificationDir = specificationDir;
     }
 }
 exports.TestScriptGenerationOptions = TestScriptGenerationOptions;

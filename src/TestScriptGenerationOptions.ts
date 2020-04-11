@@ -10,10 +10,12 @@ export class TestScriptGenerationOptions {
      *
      * @param pluginName Plugin name
      * @param sourceCodeDir Directory for the source code
+     * @param specificationDir Directory that contains specification files
      */
     constructor(
-        public pluginName: string = null,
-        public sourceCodeDir: string = null
+        public pluginName?: string,
+        public sourceCodeDir?: string,
+        public specificationDir?: string
     ) {
     }
 
