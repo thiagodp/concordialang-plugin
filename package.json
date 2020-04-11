@@ -1,6 +1,6 @@
 {
   "name": "concordialang-plugin",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Basic types to develop a Concordia plug-in",
   "license": "AGPL-3.0",
   "readme": "readme.md",
