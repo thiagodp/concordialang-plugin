@@ -4,29 +4,56 @@
  * @author Thiago Delgado Pinto
  */
 export declare class TestScriptExecutionOptions {
-    sourceCodeDir: string;
-    executionResultDir: string;
-    filter: TestScriptExecutionFilter;
     /**
-     * Constructor
+     * Directory where to search for test scripts.
      *
-     * @param sourceCodeDir Directory for script files
-     * @param executionResultDir Directory for execution result files
-     * @param filter Filter
+     * Example: `"tests"`
      */
-    constructor(sourceCodeDir?: string, executionResultDir?: string, // where to place the file with the execution results
-    filter?: TestScriptExecutionFilter);
-}
-/**
- * Test script execution filter.
- *
- * @author Thiago Delgado Pinto
- */
-export declare class TestScriptExecutionFilter {
-    minFeatureImportance: number;
-    maxFeatureImportance: number;
-    minScenarioImportance: number;
-    maxScenarioImportance: number;
-    featureName: string;
-    scenarioName: string;
+    dirScript?: string;
+    /**
+     * Directory where to put any resulting files, such as reports with testing results.
+     *
+     * Example: `"output"`
+     */
+    dirResult?: string;
+    /**
+     * Files to execute.
+     *
+     * When not defined, execute all the files available in `sourceCodeDir`.
+     *
+     * Examples:
+     *   - `"file1.js"`
+     *   - `"file1.js,path/to/file2.js"`
+     *
+     * Some frameworks may not support this option. Some may support glob patterns.
+     */
+    file?: string;
+    /**
+     * String with a regular expression that filters the files to execute.
+     *
+     * Example: `"Feature 1|Feature 2"`
+     *
+     * Some frameworks may not support this option and ignore it.
+     */
+    grep?: string;
+    /**
+     * Target environments to execute the tests.
+     *
+     * When not defined, execute them in the default environment.
+     *
+     * Example: `"chrome,firefox"`
+     */
+    target?: string;
+    /**
+     * Whether it is to execute in headless mode. Applicable to browsers only.
+     */
+    headless?: boolean;
+    /**
+     * Parallel instances to run the tests.
+     *
+     * Example: `2`
+     *
+     * Some frameworks may not support this option and ignore it.
+     */
+    instances?: number;
 }

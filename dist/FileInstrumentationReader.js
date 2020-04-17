@@ -11,14 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const util_1 = require("util");
-const InstrumentationReader_1 = require("./InstrumentationReader");
+const DefaultInstrumentationReader_1 = require("./DefaultInstrumentationReader");
 /**
  * Default script file instrumentation.
  *
  * @author Thiago Delgado Pinto
  */
 class FileInstrumentationReader {
-    constructor(_reader = new InstrumentationReader_1.DefaultInstrumentationReader(), _fs = fs, _encoding = 'utf-8') {
+    constructor(_reader = new DefaultInstrumentationReader_1.DefaultInstrumentationReader(), _fs = fs, _encoding = 'utf-8') {
         this._reader = _reader;
         this._fs = _fs;
         this._encoding = _encoding;
@@ -42,7 +42,7 @@ class FileInstrumentationReader {
                 if (null === specFilePath) {
                     specFilePath = this._reader.retrieveSpecFile(content);
                 }
-                // Retrive the specification column from the code instrumentation,
+                // Retrieve the specification column from the code instrumentation,
                 // i.e., an annotation with the specification column
                 if (count === scriptLoc.line) {
                     specLineNumber = this._reader.retrieveSpecLineNumber(content);

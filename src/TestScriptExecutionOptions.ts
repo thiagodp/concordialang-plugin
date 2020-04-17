@@ -6,34 +6,62 @@
 export class TestScriptExecutionOptions {
 
     /**
-     * Constructor
+     * Directory where to search for test scripts.
      *
-     * @param sourceCodeDir Directory for script files
-     * @param executionResultDir Directory for execution result files
-     * @param filter Filter
+     * Example: `"tests"`
      */
-    constructor(
-        public sourceCodeDir: string = null,
-        public executionResultDir: string = null, // where to place the file with the execution results
-        public filter: TestScriptExecutionFilter = new TestScriptExecutionFilter()
-    ) {
+    public dirScript?: string;
 
-    }
-}
+    /**
+     * Directory where to put any resulting files, such as reports with testing results.
+     *
+     * Example: `"output"`
+     */
+    public dirResult?: string;
 
-/**
- * Test script execution filter.
- *
- * @author Thiago Delgado Pinto
- */
-export class TestScriptExecutionFilter {
+    /**
+     * Files to execute.
+     *
+     * When not defined, execute all the files available in `sourceCodeDir`.
+     *
+     * Examples:
+     *   - `"file1.js"`
+     *   - `"file1.js,path/to/file2.js"`
+     *
+     * Some frameworks may not support this option. Some may support glob patterns.
+     */
+    public file?: string;
 
-    public minFeatureImportance: number = 1;  // 1..9
-    public maxFeatureImportance: number = 9;  // 1..9
+    /**
+     * String with a regular expression that filters the files to execute.
+     *
+     * Example: `"Feature 1|Feature 2"`
+     *
+     * Some frameworks may not support this option and ignore it.
+     */
+    public grep?: string;
 
-    public minScenarioImportance: number = 1;  // 1..9
-    public maxScenarioImportance: number = 9;  // 1..9
+    /**
+     * Target environments to execute the tests.
+     *
+     * When not defined, execute them in the default environment.
+     *
+     * Example: `"chrome,firefox"`
+     */
+    public target?: string;
 
-    public featureName: string = null; // null == don't filter
-    public scenarioName: string = null; // null == don't filter
+    /**
+     * Whether it is to execute in headless mode. Applicable to browsers only.
+     */
+    public headless?: boolean;
+
+    /**
+     * Parallel instances to run the tests.
+     *
+     * Example: `2`
+     *
+     * Some frameworks may not support this option and ignore it.
+     */
+    public instances?: number;
+
 }

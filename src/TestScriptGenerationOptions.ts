@@ -9,7 +9,7 @@ export class TestScriptGenerationOptions {
      * Constructor
      *
      * @param pluginName Plugin name
-     * @param sourceCodeDir Directory for the source code
+     * @param sourceCodeDir Output directory for the generated test scripts
      * @param specificationDir Directory that contains specification files
      */
     constructor(

@@ -7,24 +7,31 @@ import { Location } from 'concordialang-types';
  */
 export class TestScriptExecutionResult {
 
-    schemaVersion: string; // Follows semantic versioning (semver.org)
+    /** It should follow semantic versioning (semver.org) */
+    schemaVersion: string;
 
-    sourceFile: string; // e.g.: xunit.xml
+    /** Report source file, e.g. xunit.xml */
+    sourceFile: string;
 
+    /**
+     * Executed Concordia plug-in. Relevant whether the report is serialized.
+     */
     plugin: {
         name: string;
         description: string;
         version: string;
-        targets: string[];
     };
 
-    started: string; // UTC timestamp
-    finished: string; // UTC timestamp
-    durationMs: number; // milliseconds
+    /** Time when the tests' execution started, in UTC format */
+    started?: string;
+    /** Time when the tests' execution finished, in UTC format */
+    finished: string;
+    /** Duration of the tests' execution, in milliseconds */
+    durationMs: number;
 
     total: TotalExecutionResult = new TotalExecutionResult();
 
-    results: TestSuiteResult[];
+    results: TestSuiteResult[] = [];
 }
 
 /**
@@ -65,7 +72,8 @@ export class TestMethodResult {
 
     durationMs: number; // milliseconds
 
-    isForSetup?: boolean; // e.g., setUp/setUpOnce/before/beforeAll
+    /** E.g., setUp/setUpOnce/before/beforeAll */
+    isForSetup?: boolean; //
 
     exception?: TestMethodException;
 

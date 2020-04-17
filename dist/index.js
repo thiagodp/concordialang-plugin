@@ -4,8 +4,8 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./AbstractTestScript"));
+__export(require("./DefaultInstrumentationReader"));
 __export(require("./FileInstrumentationReader"));
-__export(require("./InstrumentationReader"));
 __export(require("./TestScriptExecutionOptions"));
 __export(require("./TestScriptExecutionResult"));
 __export(require("./TestScriptGenerationOptions"));

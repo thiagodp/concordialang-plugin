@@ -1,7 +1,8 @@
+import { Location } from 'concordialang-types';
 import * as fs from 'fs';
 import { promisify } from 'util';
-import { Location } from 'concordialang-types';
-import { DefaultInstrumentationReader, InstrumentationReader } from './InstrumentationReader';
+import { DefaultInstrumentationReader } from "./DefaultInstrumentationReader";
+import { InstrumentationReader } from './InstrumentationReader';
 
  /**
   * Default script file instrumentation.
@@ -40,7 +41,7 @@ import { DefaultInstrumentationReader, InstrumentationReader } from './Instrumen
                 specFilePath = this._reader.retrieveSpecFile( content );
             }
 
-            // Retrive the specification column from the code instrumentation,
+            // Retrieve the specification column from the code instrumentation,
             // i.e., an annotation with the specification column
             if ( count === scriptLoc.line ) {
                 specLineNumber = this._reader.retrieveSpecLineNumber( content );

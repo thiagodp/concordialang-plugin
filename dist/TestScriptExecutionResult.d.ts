@@ -5,16 +5,23 @@ import { Location } from 'concordialang-types';
  * @author Thiago Delgado Pinto
  */
 export declare class TestScriptExecutionResult {
+    /** It should follow semantic versioning (semver.org) */
     schemaVersion: string;
+    /** Report source file, e.g. xunit.xml */
     sourceFile: string;
+    /**
+     * Executed Concordia plug-in. Relevant whether the report is serialized.
+     */
     plugin: {
         name: string;
         description: string;
         version: string;
-        targets: string[];
     };
-    started: string;
+    /** Time when the tests' execution started, in UTC format */
+    started?: string;
+    /** Time when the tests' execution finished, in UTC format */
     finished: string;
+    /** Duration of the tests' execution, in milliseconds */
     durationMs: number;
     total: TotalExecutionResult;
     results: TestSuiteResult[];
@@ -51,6 +58,7 @@ export declare class TestMethodResult {
     name: string;
     status: 'passed' | 'adjusted' | 'failed' | 'skipped' | 'error' | 'unknown';
     durationMs: number;
+    /** E.g., setUp/setUpOnce/before/beforeAll */
     isForSetup?: boolean;
     exception?: TestMethodException;
 }

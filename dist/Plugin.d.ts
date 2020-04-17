@@ -1,7 +1,8 @@
 import { AbstractTestScript } from './AbstractTestScript';
-import { TestScriptGenerationOptions } from './TestScriptGenerationOptions';
 import { TestScriptExecutionOptions } from './TestScriptExecutionOptions';
 import { TestScriptExecutionResult } from './TestScriptExecutionResult';
+import { TestScriptGenerationOptions } from './TestScriptGenerationOptions';
+import { TestScriptGenerationResult } from './TestScriptGenerationResult';
 /**
  * Test script plugin.
  *
@@ -9,16 +10,15 @@ import { TestScriptExecutionResult } from './TestScriptExecutionResult';
  */
 export interface Plugin {
     /**
-     * Generate source code from abstract test scripts, according to the given options.
+     * Generates source code from abstract test scripts, according to the given options.
      *
      * @param abstractTestScripts Abstract test scripts
      * @param options Options
-     * @param errors File generation errors
-     * @return An array with promises for each file, containing the file name as the data.
+     * @return Generation results.
      */
-    generateCode(abstractTestScripts: AbstractTestScript[], options: TestScriptGenerationOptions, errors: Error[]): Promise<string[]>;
+    generateCode(abstractTestScripts: AbstractTestScript[], options: TestScriptGenerationOptions): Promise<TestScriptGenerationResult>;
     /**
-     * Execute test scripts, according to the given options.
+     * Executes test scripts, according to the given options.
      *
      * @param options Execution options.
      * @return Execution results.

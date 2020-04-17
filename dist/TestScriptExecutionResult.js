@@ -8,6 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class TestScriptExecutionResult {
     constructor() {
         this.total = new TotalExecutionResult();
+        this.results = [];
     }
 }
 exports.TestScriptExecutionResult = TestScriptExecutionResult;
