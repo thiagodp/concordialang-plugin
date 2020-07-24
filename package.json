@@ -50,12 +50,12 @@
     "url": "https://github.com/thiagodp/concordialang-plugin/issues"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^8.10.60",
-    "jest": "^25.4.0",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^8.10.62",
+    "jest": "^25.5.4",
     "rimraf": "^3.0.2",
-    "ts-jest": "^25.4.0",
-    "typescript": "^3.8.3"
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "concordialang-types": "^2.0.0"
