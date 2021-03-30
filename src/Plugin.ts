@@ -1,6 +1,7 @@
+import { TestScriptExecutionResult } from 'concordialang-types';
+
 import { AbstractTestScript } from './AbstractTestScript';
 import { TestScriptExecutionOptions } from './TestScriptExecutionOptions';
-import { TestScriptExecutionResult } from './TestScriptExecutionResult';
 import { TestScriptGenerationOptions } from './TestScriptGenerationOptions';
 import { TestScriptGenerationResult } from './TestScriptGenerationResult';
 

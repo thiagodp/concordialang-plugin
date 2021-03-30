@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DefaultInstrumentationReader = void 0;
 /**
  * Read instrumentation created with double-slashed line comments.
  *

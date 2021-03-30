@@ -1,7 +1,8 @@
 import { Location } from 'concordialang-types';
 import * as fs from 'fs';
 import { promisify } from 'util';
-import { DefaultInstrumentationReader } from "./DefaultInstrumentationReader";
+
+import { DefaultInstrumentationReader } from './DefaultInstrumentationReader';
 import { InstrumentationReader } from './InstrumentationReader';
 
  /**
