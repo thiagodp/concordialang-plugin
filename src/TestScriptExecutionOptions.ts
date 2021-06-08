@@ -20,7 +20,7 @@ export class TestScriptExecutionOptions {
     public dirResult?: string;
 
     /**
-     * Files to execute.
+     * Comma-separated files to execute.
      *
      * When not defined, execute all the files available in `sourceCodeDir`.
      *

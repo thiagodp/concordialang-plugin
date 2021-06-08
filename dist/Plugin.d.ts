@@ -4,11 +4,24 @@ import { TestScriptExecutionOptions } from './TestScriptExecutionOptions';
 import { TestScriptGenerationOptions } from './TestScriptGenerationOptions';
 import { TestScriptGenerationResult } from './TestScriptGenerationResult';
 /**
- * Test script plugin.
+ * Concordia Compiler Plugin.
+ *
+ * All but `name` are optional.
  *
  * @author Thiago Delgado Pinto
  */
 export interface Plugin {
+    /**
+     * Returns the plug-in name.
+     */
+    name: string;
+    /**
+     * Multi-platform serve command.
+     *
+     * 👉 Avoid defining this property whether the testing framework does not need
+     * to run a testing server.
+     */
+    serveCommand?: string;
     /**
      * Generates source code from abstract test scripts, according to the given options.
      *
@@ -16,24 +29,40 @@ export interface Plugin {
      * @param options Options
      * @return Generation results.
      */
-    generateCode(abstractTestScripts: AbstractTestScript[], options: TestScriptGenerationOptions): Promise<TestScriptGenerationResult>;
+    generateCode?: (abstractTestScripts: AbstractTestScript[], options: TestScriptGenerationOptions) => Promise<TestScriptGenerationResult>;
     /**
      * Executes test scripts, according to the given options.
      *
      * @param options Execution options.
      * @return Execution results.
      */
-    executeCode(options: TestScriptExecutionOptions): Promise<TestScriptExecutionResult>;
+    executeCode?: (options: TestScriptExecutionOptions) => Promise<TestScriptExecutionResult>;
     /**
      * Converts a file produced by the execution of test scripts (e.g. a JSON or a XML file).
      *
      * @param filePath Input file.
      * @return Execution results.
      */
-    convertReportFile(filePath: string): Promise<TestScriptExecutionResult>;
+    convertReportFile?: (filePath: string) => Promise<TestScriptExecutionResult>;
     /**
-     * Returns the default report file name. Concordia may look for it in the
-     * output/result directory when the parameter `--just-report` is given.
+     * Returns the default report file name. Concordia Compiler find it when
+     * the parameter `--just-report` is given.
+     *
+     * TO-DO: Remove this method and make Concordia Compiler find its own report.
      */
-    defaultReportFile(): Promise<string>;
+    defaultReportFile?: () => Promise<string>;
+    /**
+     * Executes right before Concordia Compiler report the test script results.
+     *
+     * @param result Test script results.
+     * @param options Test script execution options.
+     */
+    beforeReport?: (result: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
+    /**
+     * Executes right after Concordia Compiler report the test script results.
+     *
+     * @param result Test script results.
+     * @param options Test script execution options.
+     */
+    afterReport?: (result: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
 }

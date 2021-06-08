@@ -1,13 +1,19 @@
 {
   "name": "concordialang-plugin",
   "version": "1.1.0",
-  "description": "Basic types to develop a Concordia plug-in",
+  "description": "Concordia Compiler Plug-in",
   "license": "AGPL-3.0",
-  "readme": "readme.md",
-  "homepage": "https://github.com/thiagodp/concordialang-plugin#readme",
+  "homepage": "https://github.com/thiagodp/concordialang-plugin",
   "author": {
     "name": "Thiago Delgado Pinto",
-    "email": "thiago-dp@bol.com.br"
+    "site": "https://github.com/thiagodp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagodp/concordialang-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagodp/concordialang-plugin/issues"
   },
   "keywords": [
     "concordialang",
@@ -19,7 +25,7 @@
     "script",
     "test-script"
   ],
-  "main": "dist",
+  "main": "dist/index.js",
   "types": "dist",
   "files": [
     "dist/*"
@@ -41,13 +47,6 @@
       "tsx",
       "js"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thiagodp/concordialang-plugin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thiagodp/concordialang-plugin/issues"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
