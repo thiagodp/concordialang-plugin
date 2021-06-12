@@ -1,5 +1,27 @@
-import * as fs from 'fs';
-import { promisify } from 'util';
+var fs = require('fs');
+var util = require('util');
+
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () {
+                        return e[k];
+                    }
+                });
+            }
+        });
+    }
+    n['default'] = e;
+    return n;
+}
+
+var fs__namespace = /*#__PURE__*/_interopNamespace(fs);
 
 /**
  * Abstract test script (ATS).
@@ -181,7 +203,7 @@ class DefaultInstrumentationReader {
  */
 
 class FileInstrumentationReader {
-  constructor(_reader = new DefaultInstrumentationReader(), _fs = fs, _encoding = 'utf-8') {
+  constructor(_reader = new DefaultInstrumentationReader(), _fs = fs__namespace, _encoding = 'utf-8') {
     this._reader = void 0;
     this._fs = void 0;
     this._encoding = void 0;
@@ -198,7 +220,7 @@ class FileInstrumentationReader {
 
 
   async retrieveSpecLocation(scriptLoc) {
-    const readFileAsync = promisify(this._fs.readFile);
+    const readFileAsync = util.promisify(this._fs.readFile);
     let lines = (await readFileAsync(scriptLoc.filePath, this._encoding)).toString().split("\n");
     let count = 0;
     let specFilePath = null;
@@ -281,4 +303,16 @@ class TestScriptGenerationOptions {
 
 }
 
-export { ATSCommand, ATSConsoleCommand, ATSDatabaseCommand, ATSElement, ATSEvent, ATSTarget, ATSTestCase, AbstractTestScript, DefaultInstrumentationReader, FileInstrumentationReader, NamedATSElement, TestScriptExecutionOptions, TestScriptGenerationOptions };
+exports.ATSCommand = ATSCommand;
+exports.ATSConsoleCommand = ATSConsoleCommand;
+exports.ATSDatabaseCommand = ATSDatabaseCommand;
+exports.ATSElement = ATSElement;
+exports.ATSEvent = ATSEvent;
+exports.ATSTarget = ATSTarget;
+exports.ATSTestCase = ATSTestCase;
+exports.AbstractTestScript = AbstractTestScript;
+exports.DefaultInstrumentationReader = DefaultInstrumentationReader;
+exports.FileInstrumentationReader = FileInstrumentationReader;
+exports.NamedATSElement = NamedATSElement;
+exports.TestScriptExecutionOptions = TestScriptExecutionOptions;
+exports.TestScriptGenerationOptions = TestScriptGenerationOptions;
