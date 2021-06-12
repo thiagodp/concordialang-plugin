@@ -8,16 +8,9 @@ import { TestScriptGenerationResult } from './TestScriptGenerationResult';
 /**
  * Concordia Compiler Plugin.
  *
- * All but `name` are optional.
- *
  * @author Thiago Delgado Pinto
  */
 export interface Plugin {
-
-    /**
-     * Returns the plug-in name.
-     */
-    name: string;
 
     //
     // Test Generation and Execution
@@ -26,8 +19,7 @@ export interface Plugin {
     /**
      * Multi-platform serve command.
      *
-     * 👉 Avoid defining this property whether the testing framework does not need
-     * to run a testing server.
+     * 👉 Please do not define its value whether the testing framework does not need a testing server.
      */
     serveCommand?: string;
 
@@ -86,4 +78,5 @@ export interface Plugin {
      * @param options Test script execution options.
      */
     afterReport?: ( result: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+
 }

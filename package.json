@@ -25,17 +25,23 @@
     "script",
     "test-script"
   ],
-  "main": "dist/index.js",
-  "types": "dist",
   "files": [
     "dist/*"
   ],
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "microbundle --no-sourcemap --target node --format esm,cjs",
     "test": "jest",
     "all": "npm run build && npm run test",
     "preversion": "npm run all",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "fixup": "git commit --fixup HEAD & git rebase --autosquash -i HEAD~2 && git push --force"
   },
   "jest": {
     "transform": {
@@ -50,13 +56,16 @@
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
-    "@types/node": "^8.10.66",
     "jest": "^25.5.4",
+    "microbundle": "^0.13.3",
     "rimraf": "^3.0.2",
-    "ts-jest": "^25.5.1",
-    "typescript": "^3.9.9"
+    "ts-jest": "^25.5.1"
   },
   "dependencies": {
-    "concordialang-types": "^2.1.4"
+    "@types/node": "^8.10.66",
+    "concordialang-types": "git+https://github.com/thiagodp/concordialang-types.git"
+  },
+  "engines": {
+    "node": ">=12.20"
   }
 }

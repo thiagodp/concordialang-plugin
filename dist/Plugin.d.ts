@@ -6,20 +6,13 @@ import { TestScriptGenerationResult } from './TestScriptGenerationResult';
 /**
  * Concordia Compiler Plugin.
  *
- * All but `name` are optional.
- *
  * @author Thiago Delgado Pinto
  */
 export interface Plugin {
     /**
-     * Returns the plug-in name.
-     */
-    name: string;
-    /**
      * Multi-platform serve command.
      *
-     * 👉 Avoid defining this property whether the testing framework does not need
-     * to run a testing server.
+     * 👉 Please do not define its value whether the testing framework does not need a testing server.
      */
     serveCommand?: string;
     /**
