@@ -69,7 +69,7 @@ export interface Plugin {
      * @param result Test script results.
      * @param options Test script execution options.
      */
-     beforeReport?: ( result: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+     beforeReport?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
 
     /**
      * Executes right after Concordia Compiler report the test script results.
@@ -77,6 +77,6 @@ export interface Plugin {
      * @param result Test script results.
      * @param options Test script execution options.
      */
-    afterReport?: ( result: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+    afterReport?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
 
 }

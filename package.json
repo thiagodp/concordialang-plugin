@@ -65,6 +65,6 @@
     "concordialang-types": "git+https://github.com/thiagodp/concordialang-types.git"
   },
   "engines": {
-    "node": ">=12.20"
+    "node": ">=10"
   }
 }
