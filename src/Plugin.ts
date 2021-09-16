@@ -19,7 +19,7 @@ export interface Plugin {
     /**
      * Multi-platform serve command.
      *
-     * 👉 Please do not define its value whether the testing framework does not need a testing server.
+     * 👉 Use it only when the testing framework needs a testing server.
      */
     serveCommand?: string;
 
@@ -69,7 +69,7 @@ export interface Plugin {
      * @param result Test script results.
      * @param options Test script execution options.
      */
-     beforeReport?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+	beforeReport?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
 
     /**
      * Executes right after Concordia Compiler report the test script results.

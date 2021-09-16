@@ -1,6 +1,6 @@
 {
   "name": "concordialang-plugin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Concordia Compiler Plug-in",
   "license": "AGPL-3.0",
   "homepage": "https://github.com/thiagodp/concordialang-plugin",
@@ -20,10 +20,7 @@
     "concordia-lang",
     "concordia",
     "plugin",
-    "plug-in",
-    "test",
-    "script",
-    "test-script"
+    "plug-in"
   ],
   "files": [
     "dist/*"
@@ -39,8 +36,7 @@
     "build": "microbundle --no-sourcemap --target node --format esm,cjs",
     "test": "jest",
     "all": "npm run build && npm run test",
-    "preversion": "npm run all",
-    "postversion": "git push && git push --tags"
+    "preversion": "npm run all"
   },
   "jest": {
     "transform": {
@@ -62,7 +58,7 @@
   },
   "dependencies": {
     "@types/node": "^8.10.66",
-    "concordialang-types": "git+https://github.com/thiagodp/concordialang-types.git"
+    "concordialang-types": "^2.1.5"
   },
   "engines": {
     "node": ">=10"
