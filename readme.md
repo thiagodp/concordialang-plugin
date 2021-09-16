@@ -4,12 +4,12 @@
 
 # concordialang-plugin
 
-> Basic types to develop a Concordia plug-in.
+> Basic types for developing a Concordia Compiler plug-in.
 
 ## Install
 
 ```bash
-npm i --save concordialang-plugin
+npm i concordialang-plugin
 ```
 
 ## License
