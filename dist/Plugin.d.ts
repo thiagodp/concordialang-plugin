@@ -45,17 +45,17 @@ export interface Plugin {
      */
     defaultReportFile?: () => Promise<string>;
     /**
-     * Executes right before Concordia Compiler report the test script results.
+     * Event that happens before the compiler reports the test script results.
      *
-     * @param result Test script results.
+     * @param result Test script execution result.
      * @param options Test script execution options.
      */
-    beforeReport?: (result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
+    beforeReporting?: (result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
     /**
-     * Executes right after Concordia Compiler report the test script results.
+     * Event that happens after the compiler reports the test script results.
      *
-     * @param result Test script results.
+     * @param result Test script execution result.
      * @param options Test script execution options.
      */
-    afterReport?: (result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
+    afterReporting?: (result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions) => Promise<void>;
 }
