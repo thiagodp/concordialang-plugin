@@ -253,6 +253,7 @@ class TestScriptExecutionOptions {
     this.target = void 0;
     this.headless = void 0;
     this.instances = void 0;
+    this.heal = void 0;
   }
 
 }

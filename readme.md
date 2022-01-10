@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/thiagodp/concordialang-plugin.svg?branch=master)](https://travis-ci.org/thiagodp/concordialang-plugin)
-[![npm version](https://badge.fury.io/js/concordialang-plugin.svg)](https://badge.fury.io/js/concordialang-plugin)
-[![GitHub last commit](https://img.shields.io/github/last-commit/thiagodp/concordialang-plugin.svg)](https://github.com/thiagodp/concordialang-plugin/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/thiagodp/concordialang-plugin/Test?style=for-the-badge)](https://github.com/thiagodp/concordialang-plugin/actions)
+[![npm version](https://img.shields.io/npm/v/concordialang-plugin.svg?style=for-the-badge&color=green&label=NPM)](https://badge.fury.io/js/concordialang-plugin)
+[![GitHub last commit](https://img.shields.io/github/last-commit/thiagodp/concordialang-plugin.svg?style=for-the-badge)](https://github.com/thiagodp/concordialang-plugin/releases)
 
 # concordialang-plugin
 
-> Concordia Compiler plug-in interface
+> 🔌 Concordia Compiler plug-in interface
 
 ## How to create a plug-in
 
@@ -12,12 +12,12 @@
 
 1. Choose wisely your plug-in name, making sure that it starts with `concordialang-`. We recommend that it contains the target frameworks - _e.g._ `concordialang-foo-bar` if you will use the (hypothetical) frameworks `"foo"` and `"bar"`.
 2. Create a new repository and clone it.
-3. Create a new file `package.json`.
-4. Install the packages `concordialang-types` and `concordialang-plugin` as dependencies, _e.g._ `npm i concordialang-types concordialang-plugin`.
+3. Create a new file `package.json` (_e.g._, `npm init`).
+4. Install the packages `concordialang-types` and `concordialang-plugin` as dependencies (_e.g._, `npm i concordialang-types concordialang-plugin`).
 5. Add the property `"concordiaPlugin": true` to your `package.json`.
-6. Create a file (e.g. `src/index.ts`) with a class that implements the interface `Plugin` (see [API](#api)).
-7. Make sure that the created class has a `default` export (ex. `export default class`).
-8. Set the property `"main"` from your `package.json` to the JS file that contains the created class (ex. `"dist/index.js"`).
+6. Create a file (_e.g._, `src/index.ts`) with a class that implements the interface `Plugin` (see [API](#api)).
+7. Make sure that the created class has a `default` export (_i.e_, `export default class`).
+8. Set the property `"main"` from your `package.json` to the JS file that contains the created class (_e.g._, `"dist/index.js"`).
 9. Check your plug-in execution (see some tips below).
 10. Publish your package if you desire to install it by name.
 
@@ -26,11 +26,11 @@
 
 ## How to check your plug-in execution
 
-1. Create a new project with the file `package.json`.
-2. Create a simple Concordia feature file, ex. `features/example.feature`.
+1. Create a new project with the file `package.json` (_e.g._, `npm init --yes`).
+2. Create a simple Concordia feature file (_e.g._, `features/example.feature`).
 3. Install Concordia Compiler (`npm i -D concordialang`) and run the init command (`npx concordia --init`).
 4. Install your plug-in from its directory (_e.g._, `npm i -D /path/to/your-plugin`)
-5. Run Concordia with your plug-in (ex. `npx concordia -p your-plugin`) and see with it is executed correctly.
+5. Run Concordia with your plug-in (_e.g._, `npx concordia -p your-plugin`) and see with it is executed correctly.
 
 
 ## How to publish your plug-in
@@ -100,22 +100,25 @@ export interface Plugin {
     //
 
     /**
-     * Executes right before Concordia Compiler report the test script results.
+     * Event that happens before the compiler reports the test script results.
      *
-     * @param result Test script results.
+     * @param result Test script execution result.
      * @param options Test script execution options.
      */
-     beforeReport?: ( result: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+	beforeReporting?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
 
     /**
-     * Executes right after Concordia Compiler report the test script results.
+     * Event that happens after the compiler reports the test script results.
      *
-     * @param result Test script results.
+     * @param result Test script execution result.
      * @param options Test script execution options.
      */
-    afterReport?: ( result: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+    afterReporting?: ( result?: TestScriptExecutionResult, options?: TestScriptExecutionOptions ) => Promise< void >;
+
 }
 ```
+
+Please see the `src` folder for more information about the used types.
 
 ## License
 

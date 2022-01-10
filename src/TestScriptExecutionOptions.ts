@@ -28,7 +28,8 @@ export class TestScriptExecutionOptions {
      *   - `"file1.js"`
      *   - `"file1.js,path/to/file2.js"`
      *
-     * Some frameworks may not support this option. Some may support glob patterns.
+     * Some frameworks may not support this option or may support glob patterns.
+	 * Please read their documentation for more information.
      */
     public file?: string;
 
@@ -37,7 +38,8 @@ export class TestScriptExecutionOptions {
      *
      * Example: `"Feature 1|Feature 2"`
      *
-     * Some frameworks may not support this option and ignore it.
+     * Some frameworks may not support this option and will ignore it.
+	 * Please read their documentation for more information.
      */
     public grep?: string;
 
@@ -51,7 +53,7 @@ export class TestScriptExecutionOptions {
     public target?: string;
 
     /**
-     * Whether it is to execute in headless mode. Applicable to browsers only.
+     * Flag to execute in headless mode. Applicable to browsers only.
      */
     public headless?: boolean;
 
@@ -60,8 +62,19 @@ export class TestScriptExecutionOptions {
      *
      * Example: `2`
      *
-     * Some frameworks may not support this option and ignore it.
+     * Some frameworks may not support this option and will ignore it.
+	 * Please read their documentation for more information.
      */
     public instances?: number;
+
+	/**
+	 * Flag to try to heal the specification files whether its test scripts break
+	 * (e.g., because of a maintenance in the user interface) and it is possible
+	 * to make them work (e.g., changing the locator to a new, valid element).
+	 *
+     * Some frameworks may not support this option and will ignore it.
+	 * Please read their documentation for more information.
+	 */
+	public heal?: boolean;
 
 }
