@@ -10,9 +10,12 @@ import { TestScriptGenerationResult } from './TestScriptGenerationResult';
  */
 export interface Plugin {
     /**
-     * Multi-platform serve command.
+     * Multi-platform command to start a testing server, if needed.
      *
-     * 👉 Please do not define its value whether the testing framework does not need a testing server.
+     * 👉 Set its value only if the testing framework does need a testing server.
+     *
+     * @example
+     *      "selenium-standalone start"
      */
     serveCommand?: string;
     /**

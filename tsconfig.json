@@ -10,12 +10,11 @@
         "noImplicitAny": false,
         "sourceMap": false,
         "declaration": true,
+        "forceConsistentCasingInFileNames": true,
 
         "moduleResolution": "node",
+        "esModuleInterop": true,
 
-        "keyofStringsOnly": true,
-        "typeRoots": [
-            "./node_modules/@types"
-        ]
+        "keyofStringsOnly": true
     }
 }
